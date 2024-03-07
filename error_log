@@ -1,0 +1,53 @@
+[27-Jun-2023 04:14:05 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::execute_query() in /home2/apoyoinf/public_html/curso/signin-signup2/configuracion.php:6
+Stack trace:
+#0 {main}
+  thrown in /home2/apoyoinf/public_html/curso/signin-signup2/configuracion.php on line 6
+[27-Jun-2023 04:14:53 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[27-Jun-2023 04:14:53 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[27-Jun-2023 04:14:53 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[27-Jun-2023 04:15:19 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[27-Jun-2023 04:15:19 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[27-Jun-2023 04:15:19 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[27-Jun-2023 04:15:32 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[27-Jun-2023 04:15:32 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[27-Jun-2023 04:15:32 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[27-Jun-2023 04:15:54 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[27-Jun-2023 04:15:54 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[27-Jun-2023 04:15:54 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[27-Jun-2023 04:17:46 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[27-Jun-2023 04:17:46 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[27-Jun-2023 04:17:46 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[27-Jun-2023 05:17:03 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[27-Jun-2023 05:17:03 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[27-Jun-2023 05:17:03 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[29-Jun-2023 04:37:43 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[29-Jun-2023 04:37:43 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[29-Jun-2023 04:37:43 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[29-Jun-2023 04:37:53 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[29-Jun-2023 04:37:53 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[29-Jun-2023 04:37:53 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[29-Jun-2023 04:41:37 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[29-Jun-2023 04:41:37 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[29-Jun-2023 04:41:37 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[29-Jun-2023 04:42:01 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[29-Jun-2023 04:42:01 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[29-Jun-2023 04:42:01 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[26-Aug-2023 22:43:04 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php:18
+Stack trace:
+#0 /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php(18): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'lared')
+#1 {main}
+  thrown in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[26-Aug-2023 22:43:40 America/Chicago] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php:18
+Stack trace:
+#0 /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php(18): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'lared')
+#1 {main}
+  thrown in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[19-Sep-2023 02:47:37 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[19-Sep-2023 02:47:37 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[19-Sep-2023 02:47:37 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[19-Sep-2023 02:47:53 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[19-Sep-2023 02:47:53 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[19-Sep-2023 02:47:53 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
+[19-Sep-2023 02:48:05 America/Chicago] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 18
+[19-Sep-2023 02:48:05 America/Chicago] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 20
+[19-Sep-2023 02:48:05 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/apoyoinf/public_html/curso/signin-signup2/validacion.php on line 27
