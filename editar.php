@@ -39,11 +39,11 @@ if ($result->num_rows > 0) {
         echo "ID: " . $row["id"]. "<br>";
         echo "Nombre: " . $row["nombre"]. "<br>";
         echo "Apellidos: " . $row["apellidos"]. "<br>";
-        // Agrega más campos según tu estructura de tabla
+        echo "DNI: " . $row["dni"]. "<br>"; // Añade más campos según tu estructura de tabla
+    }
     }
 } else {
     echo "No se encontraron resultados para el ID proporcionado.";
-}
 
 // Cerrar conexión
 $conn->close();
