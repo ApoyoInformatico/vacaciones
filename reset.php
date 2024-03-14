@@ -1,6 +1,6 @@
 <?php
 $token_recibido = $_GET['token'];
-echo 'token Recibido: ',$token_recibido;
+//echo 'token Recibido: ',$token_recibido;
 
 //-----------------------------------------------------------//
 //Abrir base de datos y comparar token
@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM usuarios WHERE token = '$token_recibido'";
 $result = $conn->query($sql);
 if ($conn->query($sql)) {
-    echo "El token existe";
+    //echo "El token existe";
     
         // Mostrar los datos del registro
         while($row = $result->fetch_assoc()) {
@@ -41,7 +41,7 @@ if ($conn->query($sql)) {
     
             $telefono = $row["telefono"];
 
-            echo $dni, $nombre, $apellidos;
+            //echo $dni, $nombre, $apellidos;
             ?>
 
             

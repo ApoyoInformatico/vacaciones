@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$token=$_POST["txtToken"];
 	$contrasena1=md5($_POST["txtPassword"]);
 	$contrasena2=md5($_POST["txtContrasena"]);
-    echo "contrasena1: ", $contrasena1, "token: ", $token, "contrasena2: ",$contrasena2;
 }
 
 // Crear conexión
@@ -30,10 +29,10 @@ $sql = "UPDATE usuarios SET token = '', contrasena = '$contrasena1', token = '' 
 
 
 if ($conn->query($sql) === TRUE) {
-
+    $msg = "Contraseña Cambiada correctamente";
     //header('Location: aplicacion.php');
 } else {
-    echo "Error al buscar el registro: " . $conn->error;
+    $msg = "Error al buscar el registro: " . $conn->error;
 }
 }else
 {
@@ -42,9 +41,26 @@ if ($conn->query($sql) === TRUE) {
     
 }
 
-            ?>
+    
 
-            
+// Cerrar conexión
+$conn->close();
+//-----------------------------------------------------------//   
+    //verificar el token
+
+
+
+
+// Verificar el token en la base de datos
+//$sql = "SELECT * FROM tokens WHERE token = '$token_recibido'";
+//$result = $conn->query($sql);
+
+//if ($result->num_rows > 0) {
+// Token válido, permitir restablecimiento de contraseña
+//} else {
+// Token inválido, mostrar mensaje de error
+//}
+?>
 <html lang="es">
 <head>
   <!-- Google Fonts Pre Connect -->
@@ -68,36 +84,29 @@ if ($conn->query($sql) === TRUE) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
   <!-- Title -->
-  <title></title>
+  <title>login</title>
 </head>
-        <html>
-        <h2>Contraseña Cambiada correctamente</h2>
-        <form method="post" action="login.php">
-          <div class="input-group">
-          <label>Contraseña Cambiada correctamente</label>
-          <button class="unit" type="submit"><i class="material-icons" style="font-size:28px;">arrow_back</i></button>
-          </div>
-        </form>
-        </html>
+<body>
+  <header>
+    <h1></h1>
+  </header>
 
-        <?php
-    
+  <main>
+  <h6><?php echo $msg ?></h6>
+    <form method="post" action="aplicacion.php">
 
-// Cerrar conexión
-$conn->close();
-//-----------------------------------------------------------//   
-    //verificar el token
+        <button class="red" type="submit"><i class="material-icons" style="font-size:18px;">lock</i>Continuar</button>
+        <div class="segment">
+      </form>
 
+        
+  </main>
 
+  <footer>
+    <p></p>
+  </footer>
 
-
-// Verificar el token en la base de datos
-//$sql = "SELECT * FROM tokens WHERE token = '$token_recibido'";
-//$result = $conn->query($sql);
-
-//if ($result->num_rows > 0) {
-// Token válido, permitir restablecimiento de contraseña
-//} else {
-// Token inválido, mostrar mensaje de error
-//}
-?>
+  <noscript>Your browser don't support JavaScript!</noscript>
+  <script src="./scripts.js"></script>
+</body>
+</html>
