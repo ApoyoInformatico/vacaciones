@@ -45,7 +45,7 @@ if (isset($_SESSION["usuario"])){
         <label><input id="txtContrasena" name="txtContrasena" type="password" placeholder="Password"/></label>
         <label><input type="password" placeholder="Confirm Password" /></label>
         <label><input id="txtTelefono" name="txtTelefono" type="text" placeholder="Teléfono" /></label>
-        <button class="red" type="submit"><i class="material-icons" style="font-size:18px;">key</i>Registrarse</button>
+        <button class="red" type="submit" title="Registrarse"><i class="material-icons" style="font-size:18px;">key</i>Registrarse</button>
 
         
 

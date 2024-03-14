@@ -1,7 +1,7 @@
 <?php
     var_dump($_POST);
    if(isset($_POST['calendario'])) 
-        header('Location: calendario.php');
+        header('Location: calendar.php');
     if(isset($_POST['sectores'])) 
         header('Location: sectores.php');
     if(isset($_POST['usuarios'])) 
@@ -16,6 +16,8 @@
         header('Location: help.html');   
     if(isset($_POST['editar'])) 
         header('Location: editar.php'); 
+    if(isset($_POST['listarDias'])) 
+        header('Location: reporte.php');
     
   
 

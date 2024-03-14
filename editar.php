@@ -1,22 +1,16 @@
 <?php
 session_start();
 if (!isset($_SESSION["usuario"])){
-    echo "ID: ".$_SESSION["usuario"];
-    header('Location: index.html');
+    header('Location: index.html');}
 // Datos de conexión a la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "vacacionix";
 
-$dni="identi";
-$nombre="name";
-$apellidos="last name";
-$email="prueba@prueba.com";
-$telefono="phone";
 
 // Crear conexión
-echo "ID: ".$_SESSION["usuario"];
+
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Verificar conexión
@@ -25,32 +19,35 @@ if ($conn->connect_error) {
 }
 
 // ID del registro a buscar
-$id = $_SESSION["usuario"]; // 
-
+// 
+$dni=$_SESSION["usuario"];
 // Consulta SQL para obtener los datos del registro con el ID dado
-$sql = "SELECT * FROM tu_tabla WHERE id = $id";
-
+$sql = "SELECT * FROM usuarios WHERE dni = '$dni'";
 $result = $conn->query($sql);
-
 // Verificar si se encontraron resultados
 if ($result->num_rows > 0) {
     // Mostrar los datos del registro
     while($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["id"]. "<br>";
-        echo "Nombre: " . $row["nombre"]. "<br>";
-        echo "Apellidos: " . $row["apellidos"]. "<br>";
-        echo "DNI: " . $row["dni"]. "<br>"; // Añade más campos según tu estructura de tabla
-    }
+
+        $dni = $row["dni"];
+
+        $nombre = $row["nombre"];
+
+        $apellidos = $row["apellidos"];
+
+        $email = $row["email"];
+
+        $telefono = $row["telefono"];
+        // Agrega más campos según tu estructura de tabla
     }
 } else {
     echo "No se encontraron resultados para el ID proporcionado.";
+}
 
 // Cerrar conexión
 $conn->close();
 
 
-
-}
 //echo "<h4>El email y/o la contraseña son incorrectos</h4>";
 ?>
 <html lang="en">
@@ -81,12 +78,17 @@ $conn->close();
 <body>
   <main>
     <form method="post" action="escribir_modificaciones.php">
-        <div class="segment"><h1>Editar</h1></div>
-        <label>ID</label><label><input id="txtDni" name="txtDni" type="text" values="<?php echo $row["id"] ?>" /></label>
-        <label>Nombre</label><label><input id="txtNombre" name="txtNombre" type="text" values="<?php echo $row["nombre"] ?>" /></label>
-        <label>Apellido</label><label><input id="txtApellidos" name="txtApellidos" type="text" values="<?php echo $row["apellidos"] ?>" /></label>
-        <label>Email</label><label><input id="txtEmail" name="txtEmail" type="text" values="<?php echo $row["email"] ?>"/></label>
-        <label>Teléfono</label><label><input id="txtTelefono" name="txtTelefono" type="text" values="<?php echo $row["telefono"] ?>" /></label>
+        <div class="segment"><h1>Editar Perfil</h1></div>
+      <label><h6>DNI</h6></label>
+        <input id="txtDni" name="txtDni" type="text" value="<?php echo $dni ?>" />
+      <label><h6>Nombre</h6></label>
+        <input id="txtNombre" name="txtNombre" type="text" value="<?php echo $nombre ?>" />
+      <label><h6>Apellido</h6></label>
+      <input id="txtApellidos" name="txtApellidos" type="text" value="<?php echo $apellidos ?>" />
+      </label><h6>Email</h6></label>
+      <input id="txtEmail" name="txtEmail" type="text" value="<?php echo $email ?>"/>
+      <label><h6>Teléfono</h6></label>
+      <input id="txtTelefono" name="txtTelefono" type="text" value="<?php echo $telefono ?>" />
         <button class="red" type="submit"><i class="material-icons" style="font-size:18px;">key</i>Enviar</button>
 
         

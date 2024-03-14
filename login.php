@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+if (isset($_SESSION["usuario"])){
+    header('Location: aplicacion.php');}
 
 
 
@@ -60,14 +62,15 @@
               <button class="unit" type="submit" name="settings"><i class="material-icons" style="font-size:28px;">settings</i></button>
             </form>
         
-        <div class="input-group">
+          <form method="post" action="nuevacontrasena.php">
+          <div class="input-group">
           <label>
-            <input type="text" placeholder="DNI"/>
+            <input type="text" name="dni" placeholder="DNI"/>
           </label>
-          <button class="unit" type="button"><i class="material-icons" style="font-size:28px;">search</i></button>
-        </div>
+          <button class="unit" type="submit"><i class="material-icons" style="font-size:28px;">search</i></button>
+          </div>
         <h6>Solicita una nueva contraseña</h6>
-
+        </form>
   </main>
 
   <footer>

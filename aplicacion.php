@@ -1,5 +1,53 @@
 <?php
+
 session_start();
+if (!isset($_SESSION["usuario"])){
+    header('Location: login.php');}
+
+// Datos de conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "vacacionix";
+
+
+// Crear conexión
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+// ID del registro a buscar
+// 
+$dni=$_SESSION["usuario"];
+// Consulta SQL para obtener los datos del registro con el ID dado
+$sql = "SELECT * FROM usuarios WHERE dni = '$dni'";
+$result = $conn->query($sql);
+// Verificar si se encontraron resultados
+if ($result->num_rows > 0) {
+    // Mostrar los datos del registro
+    while($row = $result->fetch_assoc()) {
+
+        $dni = $row["dni"];
+
+        $nombre = $row["nombre"];
+
+        $apellidos = $row["apellidos"];
+
+        $email = $row["email"];
+
+        $telefono = $row["telefono"];
+        // Agrega más campos según tu estructura de tabla
+    }
+} else {
+    echo "No se encontraron resultados para el ID proporcionado.";
+}
+
+// Cerrar conexión
+$conn->close();
 ?>
  <script type="text/javascript" src="scripts.js"></script>
 
@@ -24,28 +72,37 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
   <!-- Title -->
-  <title>login</title>
+  <title>aplicacion</title>
 </head>
 <body>
   <header>
     <h1></h1>
   </header>
   <main>
+  <?php
+  //echo "Bienvenid@ ", $nombre, " ",$apellidos, "</br>";
+  //echo "Gracias por usar nuestro sistema";
+  ?>
+
+
   <form method="post" action="accionpanel.php">
         <div class="segment">
         <h1>Menú</h1>
-        <button class="red" type="submit" name="calendario"><i class="material-icons" style="font-size:18px;">calendar_month</i>Reservar Días</button><br />
-        <button class="red" type="submit" name="usuarios"><i class="material-icons" style="font-size:18px;">record_voice_over</i>Usuarios</button><br />
+
         <button class="red" type="submit" name="editar"><i class="material-icons" style="font-size:18px;">create</i>Editar Datos</button><br />
+        <button class="red" type="submit" name="calendario"><i class="material-icons" style="font-size:18px;">calendar_month</i>Reservar Días</button><br />
+        <button class="red" type="submit" name="listarDias"><i class="material-icons" style="font-size:18px;">list</i>Listar Días</button><br />
+        <button class="red" type="submit" name="usuarios"><i class="material-icons" style="font-size:18px;">record_voice_over</i>Usuarios</button><br />
         <button class="red" type="submit" name="logout"><i class="material-icons" style="font-size:18px;">logout</i>Log out</button>
         </div>
 
     </form>
     <form method="post" action="accionportada.php">
       <div class="segment">
-          <button class="unit" name="home" type="submit"><i class="material-icons" style="font-size:28px;">home</i></button>
-          <button class="unit" name="restart" type="submit"><i class="material-icons" style="font-size:28px;">restart_alt</i></button>
-          <button class="unit" name="settings" type="submit"><i class="material-icons" style="font-size:28px;">settings</i></button>
+          <button class="unit" name="home" type="submit" title="Home"><i class="material-icons" style="font-size:28px;">home</i></button>
+          <button class="unit" name="settings" type="submit" title="Perfil"><i class="material-icons" style="font-size:28px;">settings</i></button>
+          <button class="unit" type="submit" title="ayuda" aria-label="Ayuda" alt="ayuda" name="help"><i class="material-icons" style="font-size:28px;">help</i></button>
+
         </div>
         </form>
 

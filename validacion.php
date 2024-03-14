@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION["usuario"])){
+    header('Location: login.php');}
+
 $dni = $contrasena = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 	$dni=$_POST["txtDni"];
@@ -27,7 +31,7 @@ echo mysqli_error($mysqli);
 // si la consulta falla es bueno evitar que el código se siga ejecutando
 exit;
 }
-
+else{
 if($user = mysqli_fetch_assoc($consulta)) {
 // el usuario y la pwd son correctas
 echo "<h1>Bienvenido!!!!: $nombre</h1>";
@@ -42,6 +46,7 @@ echo "<h1>Bienvenido!!!!: $nombre</h1>";
 echo "El DNI o Contraseña NO son correctos";
 header("Location: login.php");
 
+}
 }
 
 ?>

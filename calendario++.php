@@ -1,17 +1,39 @@
 <?php
 session_start();
-$nombre=isset($_SESSION["nombre"]);
-$apellido=isset($_SESSION["apellido"]);
+if (!isset($_SESSION["usuario"])){
+    header('Location: login.php');
+    }
+ 
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario</title>
+  <!-- Google Fonts Pre Connect -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts Links (Roboto 400, 500 and 700 included)  -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  
+  <!-- CSS Files Links -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- scripts Files Links -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <!-- Title -->
+  <title>Calendario</title>
     <style>
+        body {
+            text-align: center;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -35,7 +57,12 @@ $apellido=isset($_SESSION["apellido"]);
             width: 33.33%;
         }
     </style>
+
+
+
+
 </head>
+
 <body>
 
 <?php
@@ -81,7 +108,7 @@ function generarCalendario($anio) {
                 }
 
                 if (date('N', $fechaActual) == 7) {
-                    echo "</tr><tr>";
+                   echo "</tr><tr>";
                 }
             }
 
@@ -124,7 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     document.getElementById('detener').addEventListener('click', function() {
-        document.getElementById('diasSeleccionados').innerHTML = 'Días seleccionados: ' + selectedDates.join(', '); 
+        $dias = selectedDates.join(', ');
+        document.getElementById('diasSeleccionados').innerHTML = 'Días seleccionados: ' + $dias; 
     });
     
 });
