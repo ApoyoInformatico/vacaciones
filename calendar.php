@@ -22,13 +22,22 @@ if ($conn->connect_error) {
 $dni = $_SESSION["usuario"];
 
 // Obtener datos del usuario
-$sql = "SELECT * FROM usuarios WHERE dni = '$dni'";
+//$sql = "SELECT * FROM usuarios, vacaciones WHERE dni = '$dni'";
+
+$sql = "SELECT u.nombre, u.apellidos, v.FechasReservadas
+        FROM usuarios u
+        JOIN vacaciones v ON u.dni = v.dni
+        WHERE u.dni = '$dni'";
+
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $nombre = $row["nombre"];
         $apellidos = $row["apellidos"];
+        $fechasSeleccionadas = $row["FechasReservadas"];
+
     }
 } 
 
@@ -169,8 +178,18 @@ function generarCalendario($anio) {
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var selectedDates = [];
+        var maxSelection = 22; // Número máximo de días permitidos
+
+        // Obtener las fechas seleccionadas del servidor y convertirlas a un array
+        var fechasSeleccionadas = '<?php echo $fechasSeleccionadas; ?>';
+        selectedDates = fechasSeleccionadas.split(',');
 
         document.querySelectorAll('td').forEach(function(td) {
+            // Marcar automáticamente los días seleccionados al cargar la página
+            if (selectedDates.includes(td.dataset.fecha)) {
+                td.classList.add('selected');
+            }
+
             td.addEventListener('click', function() {
                 if (this.classList.contains('selected')) {
                     this.classList.remove('selected');
@@ -179,8 +198,13 @@ function generarCalendario($anio) {
                         selectedDates.splice(index, 1);
                     }
                 } else {
-                    this.classList.add('selected');
-                    selectedDates.push(this.dataset.fecha);
+                    // Verificar que no se exceda el límite de días seleccionados
+                    if (selectedDates.length < maxSelection) {
+                        this.classList.add('selected');
+                        selectedDates.push(this.dataset.fecha);
+                    } else {
+                        alert('Solo puedes seleccionar un máximo de ' + maxSelection + ' días.');
+                    }
                 }
             });
         });

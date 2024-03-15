@@ -49,7 +49,7 @@ if (!empty($data) && ($result->num_rows == 0)) {
 }
 
 // Si existen datos actualizar
-if (!empty($data) && $result->num_rows > 0) {
+if ($result->num_rows > 0) {
     $diasSeleccionados = implode(',', $data); // Convertir el array en una cadena separada por comas
     // Consulta SQL para insertar los días seleccionados en la tabla 'vacaciones'
     $diasusados = count($data);
