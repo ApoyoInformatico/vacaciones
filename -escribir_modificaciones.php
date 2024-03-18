@@ -7,7 +7,6 @@
 		$email=$_POST["txtEmail"];
         $telefono=$_POST["txtTelefono"];
         $dni=$_POST["txtDni"];       
-        echo "aqui estamos";
         try {  
             mysqli_report(MYSQLI_REPORT_ALL);
             $mysqli = new mysqli('localhost', 'root', '', 'vacacionix');
@@ -32,7 +31,6 @@
 
             session_start();
             $_SESSION["usuario"]=$dni;
-            echo $_SESSION["usuario"];
             // define variables and set to empty values
             header("Location: aplicacion.php");
 

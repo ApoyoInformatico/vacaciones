@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["usuario"])){
     header('Location: login.php');
     }
+include "verificaradmin.php";
 ?>
 <html lang="es">
     <head>
@@ -13,7 +14,6 @@ if (!isset($_SESSION["usuario"])){
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
         <!DOCTYPE lang="es">
 
   <!-- Google Fonts Pre Connect -->
@@ -82,11 +82,6 @@ if (!isset($_SESSION["usuario"])){
     </style>
 
 
-
-
-
-
-
     </head>
     <body>
         <div class="container">
@@ -110,8 +105,6 @@ if (!isset($_SESSION["usuario"])){
                             echo "ha entrado en borrar";
                             $mysqli = new mysqli('localhost', 'root', '', 'vacacionix');
                             mysqli_query($mysqli, "DELETE FROM usuarios WHERE id = $i");
-
-
                         }
                     }    
                     function borrar($i){
@@ -159,7 +152,6 @@ if (!isset($_SESSION["usuario"])){
                             echo "</tr>";
                         }
 
-                    
                         // Close a prepared statement
                         $statement->close();
 

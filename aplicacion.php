@@ -1,16 +1,18 @@
 <?php
-
 session_start();
 if (!isset($_SESSION["usuario"])){
-    header('Location: login.php');}
+    header('Location: login.php');
+  
+
+  
+  
+  }
 
 // Datos de conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vacacionix";
+include 'configuracion.php';
 
 
+$adminshow='hidden'; //inicialmente no es administrador
 // Crear conexión
 
 $conn = new mysqli($servername, $username, $password, $database);
@@ -40,6 +42,8 @@ if ($result->num_rows > 0) {
         $email = $row["email"];
 
         $telefono = $row["telefono"];
+
+        $admin = $row["administrador"];
         // Agrega más campos según tu estructura de tabla
     }
 } else {
@@ -83,18 +87,26 @@ $conn->close();
   //echo "Bienvenid@ ", $nombre, " ",$apellidos, "</br>";
   //echo "Gracias por usar nuestro sistema";
   ?>
-
-
   <form method="post" action="accionpanel.php">
         <div class="segment">
         <h1>Menú</h1>
-
+        <h6>Bienvenid@ <?php echo $nombre . ' ' . $apellidos; ?></h6>
+          <?php if ($admin == 1) {
+          echo '<h6>ADMINISTRADOR<h6>';
+          $adminshow='submit';
+          } else $adminshow='hidden';
+          ?>
         <button class="red" type="submit" name="editar"><i class="material-icons" style="font-size:18px;">create</i>Editar Datos</button><br />
         <button class="red" type="submit" name="calendario"><i class="material-icons" style="font-size:18px;">calendar_month</i>Reservar Días</button><br />
         <button class="red" type="submit" name="listarDias"><i class="material-icons" style="font-size:18px;">list</i>Listar Días</button><br />
-        <button class="red" type="submit" name="usuarios"><i class="material-icons" style="font-size:18px;">record_voice_over</i>Usuarios</button><br />
-        <button class="red" type="submit" name="logout"><i class="material-icons" style="font-size:18px;">logout</i>Log out</button>
-        </div>
+        <button class="red" type="submit" name="logout"><i class="material-icons" style="font-size:18px;">logout</i>Log out</button><br /><br />
+        <?php if ($admin == 1) {
+        echo '<button class="red" type="<?php echo $adminshow; ?>" name="usuarios"><i class="material-icons" style="font-size:18px;">record_voice_over</i>Usuarios (ADM)</button><br />';
+        echo '<button class="red" type="<?php echo $adminshow; ?>" name="estadisticas"><i class="material-icons" style="font-size:18px;">show_chart</i>Estadísticas (ADM)</button>';
+  
+      }
+        ?>
+      </div>
 
     </form>
     <form method="post" action="accionportada.php">

@@ -5,10 +5,8 @@ if (!isset($_SESSION["usuario"])){
 }
 
 // Datos de conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vacacionix";
+include 'configuracion.php';
+
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
@@ -211,7 +209,6 @@ function generarCalendario($anio) {
 
         document.getElementById('guardarDias').addEventListener('click', function() {
             var selectedDatesJSON = JSON.stringify(selectedDates);
-
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'guardar_dias.php');
             xhr.setRequestHeader('Content-Type', 'application/json');

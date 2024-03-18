@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // añadiría un limit 1 a la consulta pues solo esperamos un registro
 
+
 $conn = new mysqli('localhost', 'root', '', 'vacacionix');
 
 $consulta = mysqli_query ($conn, "SELECT * FROM usuarios WHERE dni = '$dni' AND contrasena = '$password'");
@@ -28,7 +29,6 @@ $consulta = mysqli_query ($conn, "SELECT * FROM usuarios WHERE dni = '$dni' AND 
 if(!$consulta){
 // echo "Usuario no existe " . $nombre . " " . $password. " o hubo un error " .
 echo mysqli_error($mysqli);
-// si la consulta falla es bueno evitar que el código se siga ejecutando
 exit;
 }
 else{

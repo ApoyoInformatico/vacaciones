@@ -3,10 +3,8 @@ session_start();
 if (!isset($_SESSION["usuario"])){
     header('Location: index.html');}
 // Datos de conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vacacionix";
+include 'configuracion.php';
+
 
 
 // Crear conexión

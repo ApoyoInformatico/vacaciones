@@ -6,10 +6,8 @@ if (!isset($_SESSION["usuario"])){
 }
 
 // Datos de conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vacacionix";
+include 'configuracion.php';
+
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
@@ -23,8 +21,11 @@ if ($conn->connect_error) {
 $dni = $_SESSION["usuario"];
 $diasTotales = "22";
 // Obtener los días seleccionados desde la solicitud POST
-$data = json_decode(file_get_contents("php://input"), true);
-
+$data = (json_decode(file_get_contents("php://input"), true));
+sort($data);
+if (isset($data[0])) { //elimina elemento 0
+    if ($data[0]=='0')
+    unset($data[0]);}
 $check = "SELECT * FROM vacaciones WHERE dni = '{$_SESSION["usuario"]}'";
 $result = $conn->query($check);
 

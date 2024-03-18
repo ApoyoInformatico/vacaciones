@@ -4,7 +4,8 @@ session_start();
 if (!isset($_SESSION["usuario"])){
     header('Location: index.html');
 }
-//include 'verificaradmin.php';
+
+// Datos de conexión a la base de datos
 include 'configuracion.php';
 
 // Crear conexión
@@ -81,9 +82,8 @@ $pdf->Cell(90, 7, utf8_decode('Días Seleccionados: '), 0, 0, 'C');
 $pdf->SetXY($posX + 100, $posY);
 
 // Agregar la segunda celda con el número de fechas alineado a la izquierda
-if ($fechas[0]>'0')
 $pdf->Cell(50, 7, count($fechas), 0, 1, 'L');
-else $pdf->Cell(50, 7, '0', 0, 1, 'L');
+
 
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 12);

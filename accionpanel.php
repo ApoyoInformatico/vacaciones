@@ -18,6 +18,8 @@
         header('Location: editar.php'); 
     if(isset($_POST['listarDias'])) 
         header('Location: reporte.php');
+    if(isset($_POST['estadisticas'])) 
+        header('Location: estadisticas.php');
     
   
 

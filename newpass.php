@@ -3,10 +3,8 @@
 //Abrir base de datos y comparar token
 //-----------------------------------------------------------//
 // Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vacacionix";
+include 'configuracion.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 	$token=$_POST["txtToken"];

@@ -6,10 +6,8 @@ $token_recibido = $_GET['token'];
 //Abrir base de datos y comparar token
 //-----------------------------------------------------------//
 // Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vacacionix";
+include 'configuracion.php';
+
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
