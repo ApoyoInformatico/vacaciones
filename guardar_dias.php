@@ -8,7 +8,6 @@ if (!isset($_SESSION["usuario"])){
 // Datos de conexión a la base de datos
 include 'configuracion.php';
 
-
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -24,7 +23,7 @@ $diasTotales = "22";
 $data = (json_decode(file_get_contents("php://input"), true));
 sort($data);
 if (isset($data[0])) { //elimina elemento 0
-    if ($data[0]=='0')
+    if ($data[0]=='0' || $data[0]=='')
     unset($data[0]);}
 $check = "SELECT * FROM vacaciones WHERE dni = '{$_SESSION["usuario"]}'";
 $result = $conn->query($check);

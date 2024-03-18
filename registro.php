@@ -27,11 +27,11 @@
             //Agregar a la tabla dias seleccionados
             $sql_anadir_vacaciones = 
             "INSERT INTO vacaciones (dni, FechasReservadas, diasUsados) VALUES (?, ?, ?)";
-        $blanco = '';
-        $cero = 0;
-        $statement = $mysqli->prepare($sql_anadir_vacaciones);
-        $statement->bind_param('sss', $dni, $blanco, $cero);
-        $statement->execute();
+            $blanco = '';
+            $cero = 0;
+            $statement = $mysqli->prepare($sql_anadir_vacaciones);
+            $statement->bind_param('sss', $dni, $blanco, $cero);
+            $statement->execute();
             $statement->close();
             $mysqli->close();
 

@@ -60,7 +60,7 @@ $pdf->SetFillColor(100, 150, 200); // Color azul claro
 // add title
 $pdf->SetFont('Arial', 'B', 24);
 $pdf->Cell(0, 10, 'Fechas Reservadas para vacaciones', 0, 1);
-$pdf->Cell(50, 7, $nombre.' '.$apellidos, 0, 1, 'L');
+$pdf->Cell(50, 7, utf8_decode($nombre).' '.utf8_decode($apellidos), 0, 1, 'L');
 
 $pdf->Ln();
 //var_dump ($fechas);
